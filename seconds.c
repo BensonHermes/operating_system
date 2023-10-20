@@ -30,7 +30,8 @@ static int proc_init(void)
 {
     
     //////////////////////
-    ////<在此加入程式碼>////
+    ////<在此加入程式碼>///
+	init_jiffies = jiffies;
     /////////////////////
     //用變數記住載入模組時的jiffies
     
@@ -74,6 +75,7 @@ static ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, 
                      "Module has been running for %ld seconds\n",
                      //////////////////////
                      ////<在此加入程式碼>////
+		     total_elapsed_time = (jiffies - init_jiffies)/250
                      /////////////////////
                      );
 
